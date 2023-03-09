@@ -60,10 +60,10 @@
         this.diver.setCollideWorldBounds(true);
         this.diver.setDrag(20,15);
         this.diver.body.setMaxVelocity(30,30);
-        console.log(this.diver.body.maxVelocity);
+        //console.log(this.diver.body.maxVelocity);
 
         emitter.startFollow(this.diver);
-
+        
         cursors = this.input.keyboard.createCursorKeys();
     }
 
@@ -98,19 +98,29 @@
         }
         if (cursors.down.isDown)
         {
-            console.log(this.diver.body.velocity.y);
+            //console.log(this.diver.body.velocity.y);
             if (this.diver.body.velocity.y < 35){
                 this.diver.setAccelerationY(12);
             }
         }
 
-        if (this.diver.body.position.x > 500){
+        if (this.diver.body.position.x > 700){
+            //level 1 to 2
             console.log('NOW');
+            if(this.bg.texture.key == 'water'){
             this.bg.setTexture('water2');
+            this.diver.setPosition(150,this.diver.body.position.y);
+            console.log('cheedg');
+            }
+            //console.log(this.bg.texture.getSourceImage());
         }
-        if (this.diver.body.position.x < 3){
-            console.log('NOW');
-            this.bg.setTexture('water');
+        if (this.diver.body.position.x < 70){
+            //level 2 to 1
+            console.log('almost');
+            if(this.bg.texture.key == 'water2'){
+                this.bg.setTexture('water');
+                this.diver.setPosition(600,this.diver.body.position.y);
+            }
         }
         
         // if (diver.velocity.x > 0 ) { //&& diver.texture == 'diverp'
