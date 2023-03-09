@@ -30,6 +30,7 @@
         this.load.setBaseURL('https://azurejames.github.io/divingGame/');
 
         this.load.image('water', './assets/ocean1stperson.webp');
+        this.load.image('water2', './assets/ocean3d.webp');
         this.load.image('boat', 'assets/airBoat.webp');
         this.load.image('diverp', 'assets/diverp.png');
         this.load.image('diverpRight', 'assets/diverpRight.png');
@@ -38,7 +39,7 @@
 
     function create ()
     {
-        this.add.image(400, 300, 'water').setScale(1.6);
+        this.bg = this.add.image(400, 300, 'water').setScale(1.6);
         var particles = this.add.particles('bubble');
 
         var emitter = particles.createEmitter({
@@ -103,6 +104,10 @@
             }
         }
 
+        if (this.diver.body.position.x > 500){
+            console.log('NOW');
+            bg.setTexture('water2');
+        }
         
         // if (diver.velocity.x > 0 ) { //&& diver.texture == 'diverp'
         //     console.log('chg');
