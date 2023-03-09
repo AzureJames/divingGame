@@ -13,12 +13,13 @@
         physics: {
             default: 'arcade',
             arcade: {
-                gravity: { y: 200 }
+                gravity: { y: 20 }
             }
         },
         scene: {
             preload: preload,
-            create: create
+            create: create,
+            update: update
         }
     };
 
@@ -31,12 +32,13 @@
         this.load.image('water', './assets/ocean1stperson.webp');
         this.load.image('boat', 'assets/airBoat.webp');
         this.load.image('diverp', 'assets/diverp.png');
+        this.load.image('diverpRight', 'assets/diverpRight.png');
         this.load.image('bubble', 'assets/bubble.png');
     }
 
     function create ()
     {
-        this.add.image(400, 300, 'water');
+        this.add.image(400, 300, 'water').setScale(1.6);
         var particles = this.add.particles('bubble');
 
         var emitter = particles.createEmitter({
@@ -47,15 +49,39 @@
             blendMode: 'ADD'
         });
 
-        var diver = this.physics.add.image(100, 100, 'diverp');
-        diver.setTexture('diverpRight', 'assets/diverpRight.png');
+        var diver = this.physics.add.sprite(100, 100, 'diverp');
+
         // diver.setHeight(50);
         // diver.setWidth(50);
         diver.setVelocity(60, 50);
+
         diver.setBounce(1, 1);
         diver.setCollideWorldBounds(true);
 
         emitter.startFollow(diver);
+
+        cursors = this.input.keyboard.createCursorKeys();
+    }
+
+    function update ()
+    {
+        if (cursors.left.isDown)
+        {
+         
+            diver.setSprite('diverp', 'assets/diverp.png');
+        }
+        if (cursors.right.isDown)
+        {
+           
+            diver.setSprite('diverpRight', 'assets/diverpRight.png');
+        }
+
+        
+        // if (diver.velocity.x > 0 ) { //&& diver.texture == 'diverp'
+        //     console.log('chg');
+        //     diver.setTexture('diverpRight', 'assets/diverpRight.png');
+        // }
+      
     }
     </script>
 
