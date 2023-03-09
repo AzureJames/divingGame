@@ -13,7 +13,7 @@
         physics: {
             default: 'arcade',
             arcade: {
-                gravity: { y: 10 }
+                gravity: { y: 1 }
             }
         },
         scene: {
@@ -57,6 +57,9 @@
 
         this.diver.setBounce(1, 1);
         this.diver.setCollideWorldBounds(true);
+        this.diver.setDrag(20,15);
+        this.diver.body.setMaxVelocity(30,30);
+        console.log(this.diver.body.maxVelocity);
 
         emitter.startFollow(this.diver);
 
@@ -69,28 +72,34 @@
         if (cursors.left.isDown)
         {
             // if(this.diver.body.velocity.x > 0){
-                this.diver.setVelocityX(-60);
+                // if (this.diver.body.velocity.x <    20){
+                    this.diver.setAccelerationX(-50);
+                // }
+                // this.diver.setVelocityX(-50);
                 this.diver.setTexture('diverp');
             // }
         }
         if (cursors.right.isDown)
         {
             // if(this.diver.body.velocity.x < 0){
-                this.diver.setVelocityX(60);
+                //add drag
+                // if (this.diver.body.velocity.x <    20){
+                    this.diver.setAccelerationX(50);
+                // }
                 this.diver.setTexture('diverpRight');
             // }
         }
         if (cursors.up.isDown)
         {
             if (this.diver.body.velocity.y > -20){
-                this.diver.setVelocityY(this.diver.body.velocity.y -2);
+                this.diver.setAccelerationY(-12);
             }
         }
         if (cursors.down.isDown)
         {
             console.log(this.diver.body.velocity.y);
             if (this.diver.body.velocity.y < 35){
-                this.diver.setVelocityY(this.diver.body.velocity.y +2);
+                this.diver.setAccelerationY(12);
             }
         }
 
