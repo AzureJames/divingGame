@@ -37,12 +37,12 @@
     function create ()
     {
         this.add.image(400, 300, 'water');
-
         var particles = this.add.particles('bubble');
 
         var emitter = particles.createEmitter({
-            speed: 100,
-            tint: 0x111fff,
+            speed: 50,
+            frequency: 100,
+            maxParticles: 5,
             scale: { start: 1, end: 0 },
             blendMode: 'ADD'
         });
@@ -50,7 +50,7 @@
         var diver = this.physics.add.image(100, 100, 'diverp');
         // diver.setHeight(50);
         // diver.setWidth(50);
-        diver.setVelocity(100, 200);
+        diver.setVelocity(60, 50);
         diver.setBounce(1, 1);
         diver.setCollideWorldBounds(true);
 
