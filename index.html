@@ -30,7 +30,7 @@
 
         this.load.image('water', './assets/ocean1stperson.webp');
         this.load.image('boat', 'assets/airBoat.webp');
-        this.load.image('diver', 'assets/diver.webp');
+        this.load.image('diverp', 'assets/diverp.png');
     }
 
     function create ()
@@ -45,13 +45,14 @@
             blendMode: 'ADD'
         });
 
-        var logo = this.physics.add.image(100, 100, 'diver');
+        var diver = this.physics.add.image(100, 100, 'diverp');
+        // diver.setHeight(50);
+        // diver.setWidth(50);
+        diver.setVelocity(100, 200);
+        diver.setBounce(1, 1);
+        diver.setCollideWorldBounds(true);
 
-        logo.setVelocity(100, 200);
-        logo.setBounce(1, 1);
-        logo.setCollideWorldBounds(true);
-
-        emitter.startFollow(logo);
+        emitter.startFollow(diver);
     }
     </script>
 
