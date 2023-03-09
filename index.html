@@ -13,7 +13,7 @@
         physics: {
             default: 'arcade',
             arcade: {
-                gravity: { y: 20 }
+                gravity: { y: 10 }
             }
         },
         scene: {
@@ -49,31 +49,49 @@
             blendMode: 'ADD'
         });
 
-        var diver = this.physics.add.sprite(100, 100, 'diverp');
+        this.diver = this.physics.add.sprite(100, 100, 'diverp');
 
         // diver.setHeight(50);
         // diver.setWidth(50);
-        diver.setVelocity(60, 50);
+        this.diver.setVelocity(60, 50);
 
-        diver.setBounce(1, 1);
-        diver.setCollideWorldBounds(true);
+        this.diver.setBounce(1, 1);
+        this.diver.setCollideWorldBounds(true);
 
-        emitter.startFollow(diver);
+        emitter.startFollow(this.diver);
 
         cursors = this.input.keyboard.createCursorKeys();
     }
 
     function update ()
     {
+        
         if (cursors.left.isDown)
         {
-         
-            diver.setSprite('diverp', 'assets/diverp.png');
+            // if(this.diver.body.velocity.x > 0){
+                this.diver.setVelocityX(-60);
+                this.diver.setTexture('diverp');
+            // }
         }
         if (cursors.right.isDown)
         {
-           
-            diver.setSprite('diverpRight', 'assets/diverpRight.png');
+            // if(this.diver.body.velocity.x < 0){
+                this.diver.setVelocityX(60);
+                this.diver.setTexture('diverpRight');
+            // }
+        }
+        if (cursors.up.isDown)
+        {
+            if (this.diver.body.velocity.y > -20){
+                this.diver.setVelocityY(this.diver.body.velocity.y -2);
+            }
+        }
+        if (cursors.down.isDown)
+        {
+            console.log(this.diver.body.velocity.y);
+            if (this.diver.body.velocity.y < 35){
+                this.diver.setVelocityY(this.diver.body.velocity.y +2);
+            }
         }
 
         
