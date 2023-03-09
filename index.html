@@ -31,16 +31,18 @@
         this.load.image('water', './assets/ocean1stperson.webp');
         this.load.image('boat', 'assets/airBoat.webp');
         this.load.image('diverp', 'assets/diverp.png');
+        this.load.image('bubble', 'assets/bubble.png');
     }
 
     function create ()
     {
         this.add.image(400, 300, 'water');
 
-        var particles = this.add.particles('blue');
+        var particles = this.add.particles('bubble');
 
         var emitter = particles.createEmitter({
             speed: 100,
+            tint: 0x111fff,
             scale: { start: 1, end: 0 },
             blendMode: 'ADD'
         });
