@@ -82,9 +82,9 @@
     // const tileset = map.addTilesetImage('standard_tiles', 'base_tiles')
 
     // create the layers we want in the right order
-    map.createStaticLayer('Tile Layer 1', tileset)
+    map.createStaticLayer('TileLayer1', tileset)
 
-   
+   this.physics.add.collider(this.diver, TileLayer1);
     }
 
     function update ()
