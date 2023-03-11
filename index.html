@@ -39,7 +39,7 @@
         //tile
         this.load.image('base_tiles', 'assets/oceanfloor.png')
         // load the JSON file
-        this.load.tilemapTiledJSON('tilemap', 'assets/level1.tmj')
+        this.load.tilemapTiledJSON('tilemap', 'assets/level2.tmj')
     }
 
     function create ()
@@ -84,8 +84,7 @@
     // create the layers we want in the right order
     map.createStaticLayer('Tile Layer 1', tileset)
 
-    // "Ground" layer will be on top of "Background" layer
-    map.createStaticLayer('Ground', tileset)
+   
     }
 
     function update ()
