@@ -29,7 +29,7 @@
     {
         this.load.setBaseURL('https://azurejames.github.io/divingGame/');
 
-        this.load.image('water', './assets/ocean1stperson.webp');
+        this.load.image('water', './assets/underwater.jpg');
         this.load.image('water2', './assets/ocean3d.webp');
         this.load.image('boat', 'assets/airBoat.webp');
         this.load.image('diverp', 'assets/diverp.png');
@@ -128,24 +128,24 @@
             }
         }
 
-        if (this.diver.body.position.x > 700){
-            //level 1 to 2
-            console.log('NOW');
-            if(this.bg.texture.key == 'water'){
-            this.bg.setTexture('water2');
-            this.diver.setPosition(150,this.diver.body.position.y);
-            console.log('cheedg');
-            }
-            //console.log(this.bg.texture.getSourceImage());
-        }
-        if (this.diver.body.position.x < 70){
-            //level 2 to 1
-            console.log('almost');
-            if(this.bg.texture.key == 'water2'){
-                this.bg.setTexture('water');
-                this.diver.setPosition(600,this.diver.body.position.y);
-            }
-        }
+        //CHG WATER BG if (this.diver.body.position.x > 700){
+        //     //level 1 to 2
+        //     console.log('NOW');
+        //     if(this.bg.texture.key == 'water'){
+        //     this.bg.setTexture('water2');
+        //     this.diver.setPosition(150,this.diver.body.position.y);
+        //     console.log('cheedg');
+        //     }
+        //     //console.log(this.bg.texture.getSourceImage());
+        // }
+        // if (this.diver.body.position.x < 70){
+        //     //level 2 to 1
+        //     console.log('almost');
+        //     if(this.bg.texture.key == 'water2'){
+        //         this.bg.setTexture('water');
+        //         this.diver.setPosition(600,this.diver.body.position.y);
+        //     }
+        // }
         
         // if (diver.velocity.x > 0 ) { //&& diver.texture == 'diverp'
         //     console.log('chg');
