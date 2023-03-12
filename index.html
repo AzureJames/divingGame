@@ -87,7 +87,8 @@
    this.physics.add.collider(this.diver, tileLayer1);
    tileLayer1.setCollisionBetween(1,99);
 
-   this.cameras.main.setSize(800, 600);
+   this.cameras.main.zoom = 1.5;
+   this.cameras.main.setSize(900, 700);
    this.cameras.main.startFollow(this.diver, false, .1, .1);
     }
 
