@@ -35,7 +35,7 @@
         this.load.image('diverp', 'assets/diverp.png');
         this.load.image('diverpRight', 'assets/diverpRight.png');
         this.load.image('bubble', 'assets/bubble.png');
-        this.load.image('fish', 'assets/fish.png');
+        this.load.image('girl', 'assets/girl.png');
 
         //tile
         this.load.image('base_tiles', 'assets/oceanfloor.png')
@@ -59,7 +59,7 @@
         });
 
         this.diver = this.physics.add.sprite(100, 100, 'diverp');
-        this.fish = this.physics.add.sprite(120, 70, 'fish');
+        this.fish = this.physics.add.sprite(120, 70, 'girl');
 
         // diver.setHeight(50);
         // diver.setWidth(50);
@@ -155,8 +155,8 @@
         //     diver.setTexture('diverpRight', 'assets/diverpRight.png');
         // }
 
-        fish.body.velocity.x = Math.random() * 200 - 100;
-        fish.body.velocity.y = Math.random() * 200 - 100;
+        this.fish.body.velocity.x = Math.random() * 200 - 100;
+        this.fish.body.velocity.y = Math.random() * 200 - 100;
       
     }
     </script>
