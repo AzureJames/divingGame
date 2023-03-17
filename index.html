@@ -60,6 +60,9 @@
 
         this.diver = this.physics.add.sprite(100, 100, 'diverp');
         this.fish = this.physics.add.sprite(120, 70, 'girl');
+        this.fish.setScale(.3);
+        this.fish.setCollideWorldBounds(true);
+        this.fish.setBounce(1, 1);
 
         // diver.setHeight(50);
         // diver.setWidth(50);
@@ -92,6 +95,7 @@
    this.cameras.main.zoom = 1.5;
    this.cameras.main.setSize(900, 700);
    this.cameras.main.startFollow(this.diver, false, .1, .1);
+   let fx, fy;
     }
 
     function update ()
@@ -155,9 +159,22 @@
         //     diver.setTexture('diverpRight', 'assets/diverpRight.png');
         // }
 
-        this.fish.body.velocity.x = Math.random() * 200 - 100;
-        this.fish.body.velocity.y = Math.random() * 200 - 100;
+        // this.fish.body.setAccelerationX(Math.random() * 40 - 20);
+        // this.fish.body.setAccelerationY(Math.random() * 40 - 20);
       
+
+         // set the fish's horizontal and vertical position
+         var time = new Date();
+    fx = Math.sin(time.getSeconds() /10) * 10;
+    fy = Math.sin(time.getSeconds() /10) * 5;
+    
+    // add some random variation to the position
+    fx += Math.random() * 4 - 2;
+    fy += Math.random() * 4 - 2;
+    
+    // set the fish's position
+    this.fish.body.setAccelerationX(fx);
+    this.fish.body.setAccelerationX(fy);
     }
     </script>
 
