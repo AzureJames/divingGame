@@ -35,7 +35,7 @@
         this.load.image('diverp', 'assets/diverp.png');
         this.load.image('diverpRight', 'assets/diverpRight.png');
         this.load.image('bubble', 'assets/bubble.png');
-        this.load.image('girl', 'assets/girl.png');
+        this.load.image('girl', 'assets/fishsml.png');
 
         //tile
         this.load.image('base_tiles', 'assets/oceanfloor.png')
@@ -60,6 +60,7 @@
 
         this.diver = this.physics.add.sprite(100, 100, 'diverp');
         this.fish = this.physics.add.sprite(120, 70, 'girl');
+
         this.fish.setScale(.3);
         this.fish.setCollideWorldBounds(true);
         this.fish.setBounce(1, 1);
@@ -163,18 +164,18 @@
         // this.fish.body.setAccelerationY(Math.random() * 40 - 20);
       
 
-         // set the fish's horizontal and vertical position
-         var time = new Date();
-    fx = Math.sin(time.getSeconds() /10) * 10;
-    fy = Math.sin(time.getSeconds() /10) * 5;
-    
-    // add some random variation to the position
-    fx += Math.random() * 4 - 2;
-    fy += Math.random() * 4 - 2;
-    
-    // set the fish's position
-    this.fish.body.setAccelerationX(fx);
-    this.fish.body.setAccelerationX(fy);
+        // set the fish's horizontal and vertical position
+        var time = new Date();
+        fx = Math.sin(time.getSeconds() /10) * 10;
+        fy = Math.sin(time.getSeconds() /10) * 5;
+        
+        // add some random variation to the position
+        fx += Math.random() * 4 - 2;
+        fy += Math.random() * 4 - 2;
+        
+        // set the fish's position
+        this.fish.body.setAccelerationX(fx);
+        this.fish.body.setAccelerationX(fy);
     }
     </script>
 
