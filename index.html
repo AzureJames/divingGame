@@ -59,11 +59,16 @@
         });
 
         this.diver = this.physics.add.sprite(100, 100, 'diverp');
-        this.fish = this.physics.add.sprite(120, 70, 'girl');
 
+        this.fish = this.physics.add.sprite(120, 70, 'girl');
         this.fish.setScale(.3);
         this.fish.setCollideWorldBounds(true);
         this.fish.setBounce(1, 1);
+
+        this.fish2 = this.physics.add.sprite(150, 90, 'girl');
+        this.fish2.setScale(.3);
+        this.fish2.setCollideWorldBounds(true);
+        this.fish2.setBounce(1, 1);
 
         // diver.setHeight(50);
         // diver.setWidth(50);
@@ -176,6 +181,9 @@
         // set the fish's position
         this.fish.body.setAccelerationX(fx);
         this.fish.body.setAccelerationX(fy);
+
+        this.fish2.body.setAccelerationX(-fx);
+        this.fish2.body.setAccelerationX(-fy);
     }
     </script>
 
