@@ -9,7 +9,7 @@
     var config = {
         type: Phaser.AUTO,
         width: 1800,
-        height: 1600,
+        height: 3900,
         physics: {
             default: 'arcade',
             arcade: {
@@ -68,7 +68,7 @@
         this.fish2 = this.physics.add.sprite(150, 90, 'girl');
         this.fish2.setScale(.3);
         this.fish2.setCollideWorldBounds(true);
-        this.fish2.setBounce(1, 1);
+        this.fish2.setBounce(.5, .3);
 
         // diver.setHeight(50);
         // diver.setWidth(50);
@@ -77,7 +77,7 @@
         this.diver.setBounce(1, 1);
         this.diver.setCollideWorldBounds(true);
         this.diver.setDrag(20,15);
-        this.diver.body.setMaxVelocity(30,30);
+        this.diver.body.setMaxVelocity(35,35);
         //console.log(this.diver.body.maxVelocity);
 
         emitter.startFollow(this.diver);
